@@ -1,0 +1,53 @@
+<div style="margin-top: 20px;">	
+	<div class="container">
+		<div class= "row">
+			<div class="col-sm-12">
+				<div class="row">
+					<div class = "col-3 col-sm-3">
+				    	<div style="width: 100%; height: 500px; padding: 3px; border: 3px solid gray; margin: 0;">
+					    	<h5>Ex Raid</h5>
+					    	<h5>Level 1</h5>`
+							<div style="position:absolute; bottom:0; width:85%; height:75px; text-align:center;">
+				    			<%= link_to "Inventory", inventory_path %> <br>
+				    			<%= link_to "Status", status_path %>
+				    		</div>		    
+					  	</div>
+					</div>
+	    			<div class="col-8 col-sm-8">
+	       				<div style="width: 100%; height: 500px; padding: 3px; border: 3px solid gray; margin: 0;">
+		  					<h2><center>Select Map</center></h2>
+		  					<div style="margin: auto; width: 85%; height: 80%; padding: 20px; border: 1px solid red;">
+		  						<%= link_to page4_path do %>
+                                <%= image_tag("monastery.png", size: "100x100", opacity: "90%") %><p>DUNGEON CLEARD! PLAY AGAIN? </p>
+								<% end %>
+								<%= link_to page44_path do %>
+                                <%= image_tag("dungeon2.png", size: "100x100", opacity: "90%") %>
+								<% end %>
+		  					</div>
+                            
+		  				</div>
+				  	</div>
+	     			<div class= "col- 11 col-sm-11">
+						<div style="width: 100%; padding: 3px; border: 3px solid gray; margin-top: 15px;">
+							<div class="row">
+								<div class="col-sm-2" style="visibility: hidden;">
+									<%= image_tag("Ex Raid small.png", size: "100x100") %>	
+								</div>
+								<div class="col-sm-2" style="visibility: hidden;">
+									<h4>HP:</h4><br>
+									<h4>Status:</h4>
+								</div>
+								<div class="col-sm-2">
+									<div class="progress" style="margin-top: 10px;" style="visibility: hidden;">
+							  			<div class="progress-bar progress-bar-success" role="progressbar" style="width:100%; visibility: hidden;">100%
+							  			</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>		
+		</div>
+	</div>
+</div>
