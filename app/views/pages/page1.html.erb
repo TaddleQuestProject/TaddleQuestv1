@@ -1,0 +1,44 @@
+<script type="text/javascript">
+c = 0;
+	function message()
+	{
+		document.getElementById("mes").innerHTML = "<h4>You see it started when one day one of my friends just got some weird artifact form some shady merchant. It was this stone that was supposed to have this creepy ability once you learn how to use it. One night while I was developing my game I accidentally pushed the stone away from the table and here I am, stuck in a world I designed. Well if the world was based on how I programed it there’s a stone in the end level that can grant any wish. That’s my only ticket here so help me out okay?</h4>";
+		c++;
+		if(c == 2){
+			window.location.href= "/page2";
+		}
+	}	
+</script>
+
+<div style="margin-top: 20px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="row">
+    				<div class="col-8 col-sm-8">
+       					<div style="width: 100%; height: 500px; padding: 3px; border: 3px solid gray; margin: 0;">
+	  						<div style="margin: 10px;">
+		  						<h4>Welcome to Taddle Quest, this is one of the few games that was supposed to be released among a few other games that me and a small group of friends are making. Everything was going fine until that I got stuck in this game… Yes, please send help.</h4>
+		  						<div id=mes>
+		  					</div>
+						</div>
+	  				</div>
+	  				<div class="row">
+		     			<div class = "col-sm-12">
+			     			<div style="width: 100%; padding: 3px; margin-top: 15px; padding-left: 85%;">
+				  				<%= link_to 'CONTINUE', "javascript:message()", class: "btn btn-default" %>
+				  			</div>
+			  			</div>
+					</div>
+     			</div>
+      			<div class="col-sm-3">
+					<div style="width: 100%; height: 100%; padding: 3px;  border: 3px solid gray; margin: 0;">
+	  					<%= image_tag("Taddle Quest.jpg", size: "252x550") %>	
+	  				</div>
+      			</div>
+		    </div>
+  		</div>
+	</div>
+</div>
+
+
