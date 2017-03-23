@@ -1,15 +1,17 @@
 <script type="text/javascript">
 	var weapon = "";
-	var s1 = 10;
-	var s2 = 15;
-	var s3 = 20;
-	var s4 = 50
+	var s1 = 15;
+	var s2 = 25;
+	var s3 = 45;
+	var s4 = 50;
 	
+	var dam1 = 75;
+	var dam1 = 1;
 	var damage;
-	var health = 100;
-	var phealth = 100;
+	var health = 750;
+	var phealth = 500;
 	var enemyDamage = 0;
-	var hpack = 1;	
+	var hpack = 2;	
 	var dpack = 1;	
 	var defense = 0;
 	var first = 1;
@@ -18,20 +20,21 @@ function load(){
 	document.getElementById("buttonh").disabled = true;
 	document.getElementById("buttond").disabled = true;
 }
+
 function getEnemyDamage()
 {
 
- 	if((health == 90) || (health == 85))
+ 	if((health == 750) || (health >= 650))
 		return s1;
 
-	else if((health == 50) || (health == 45))
+	else if((health >= 500) || (health >= 450))
 		return s2;
 
-	else if((health == 10) ||(health == 5))
+	else if((health >= 100) ||(health >= 50))
 		return s3;
 
 	else{
-		return Math.ceil(Math.random() * 10) + 1;
+		return Math.ceil(Math.random() * 30) + 1;
 	}
 
 }
@@ -39,7 +42,7 @@ function getEnemyDamage()
 
 function healPlayer() {
 	enemyDamage = getEnemyDamage();
-	if(phealth < 50 && hpack > 0){
+	if(phealth < 450 && hpack > 0){
 		document.getElementById("message1").innerHTML = "<p> <b>Player Healed!</b> The player gain <b>" + s4 + "</b> health points.</p>";
 		phealth = phealth + s4;
 		hpack = hpack - 1;
@@ -53,20 +56,28 @@ function healPlayer() {
 		document.getElementById("message1").innerHTML = "<p> Player still have health greater than 50.</p>";
 		}
 		
-	if(phealth >= 100)
+	if(phealth == 500)
 			document.getElementById("playerHealth").className = "progress-bar progress-bar-danger sword-green sword-100";
 		
-		if(phealth >= 90){
+		if(phealth >= 450){
 			document.getElementById("playerHealth").className = "progress-bar sword-green sword-90";
 		}
-		else if(phealth >= 80)
+		else if(phealth >= 400)
 			document.getElementById("playerHealth").className = "progress-bar sword-green sword-80";
-		else if(phealth >= 70)
+		else if(phealth >= 350)
 			document.getElementById("playerHealth").className = "progress-bar sword-green sword-70";
-		else if(phealth >= 60)
+		else if(phealth >= 300)
 			document.getElementById("playerHealth").className = "progress-bar sword-orange sword-60";
-		else if(phealth >= 50)
+		else if(phealth >= 250)
 			document.getElementById("playerHealth").className = "progress-bar sword-orange sword-50";
+		else if(phealth >= 200)
+			document.getElementById("playerHealth").className = "progress-bar sword-orange sword-40";
+		else if(phealth >= 150)
+			document.getElementById("playerHealth").className = "progress-bar sword-red sword-30";
+		else if(phealth >= 100)
+			document.getElementById("playerHealth").className = "progress-bar sword-red sword-20";
+		else if(phealth >= 50)
+			document.getElementById("playerHealth").className = "progress-bar sword-red sword-10";
 }
 
 
@@ -82,6 +93,7 @@ function playerDamage()
 {
 	setTimeout(function()
 	{
+		enemyDamage = getEnemyDamage();
 		if(defense == 0){
 			if(enemyDamage == 10)
 				document.getElementById("message1").innerHTML = "<p> <b>SPECIAL ATTACK!</b> The player took <b>" + enemyDamage + "</b> damage from the enemy.</p>";
@@ -103,30 +115,30 @@ function playerDamage()
 		document.getElementById("hp").innerHTML = phealth;
 
 		//alert("Swordman " + damage);
-		if(phealth == 100)
+		if(phealth == 500)
 			document.getElementById("playerHealth").className = "progress-bar progress-bar-danger sword-green sword-100";
 		
-		if(phealth >= 90){
+		if(phealth >= 450){
 			document.getElementById("playerHealth").className = "progress-bar sword-green sword-90";
 		}
-		else if(phealth >= 80)
+		else if(phealth >= 400)
 			document.getElementById("playerHealth").className = "progress-bar sword-green sword-80";
-		else if(phealth >= 70)
+		else if(phealth >= 350)
 			document.getElementById("playerHealth").className = "progress-bar sword-green sword-70";
-		else if(phealth >= 60)
+		else if(phealth >= 300)
 			document.getElementById("playerHealth").className = "progress-bar sword-orange sword-60";
-		else if(phealth >= 50)
+		else if(phealth >= 250)
 			document.getElementById("playerHealth").className = "progress-bar sword-orange sword-50";
-		else if(phealth >= 40)
+		else if(phealth >= 200)
 			document.getElementById("playerHealth").className = "progress-bar sword-orange sword-40";
-		else if(phealth >= 30)
+		else if(phealth >= 150)
 			document.getElementById("playerHealth").className = "progress-bar sword-red sword-30";
-		else if(phealth >= 20)
+		else if(phealth >= 100)
 			document.getElementById("playerHealth").className = "progress-bar sword-red sword-20";
-		else if(phealth >= 10)
+		else if(phealth >= 50)
 			document.getElementById("playerHealth").className = "progress-bar sword-red sword-10";
 		else if(phealth <= 0)
-		window.location.href = "/defeat";
+			window.location.href = "/defeat2";
 		
 }, 500); 
 
@@ -151,13 +163,13 @@ function attack(){
 		if(phealth <= 0)
 			window.location.href = "/defeat";
 
-		else if((health == 90) || (health == 95))
+		else if((health == 700) || (health == 650))
 			phealth -= s1;
 
-		else if((health == 50) || (health == 45))
+		else if((health == 500) || (health == 450))
 			phealth -= s2;
 
-		else if((health == 10) || (health == 5))
+		else if((health == 100) || (health == 50))
 			phealth -= s3;
 
 		else
@@ -169,7 +181,7 @@ playerDamage();
 	
 
 
-	if(health == 100)
+	if(health == 750)
 		document.getElementById("ahealth").className = "progress-bar progress-bar-danger sword-green sword-100";
 
 
@@ -183,47 +195,46 @@ playerDamage();
 
 		document.getElementById("enemy").innerHTML = health;
 
-		if(health == 95)
+		if(health >= 750)
 			document.getElementById("ahealth").className = "progress-bar sword-green sword-95";
-		else if(health == 90)
+		else if(health >= 700)
 			document.getElementById("ahealth").className = "progress-bar sword-green sword-90";
-		else if(health == 85)
+		else if(health >= 650)
 			document.getElementById("ahealth").className = "progress-bar sword-green sword-85";
-		else if(health == 80)
+		else if(health >= 600)
 			document.getElementById("ahealth").className = "progress-bar sword-green sword-80";
-		else if(health == 75)
+		else if(health >= 550)
 			document.getElementById("ahealth").className = "progress-bar sword-green sword-75";
-		else if(health == 70)
+		else if(health >= 500)
 			document.getElementById("ahealth").className = "progress-bar sword-green sword-70";
-		else if(health == 65)
+		else if(health >= 450)
 			document.getElementById("ahealth").className = "progress-bar sword-green sword-65";
-		else if(health == 60)
+		else if(health >= 400)
 			document.getElementById("ahealth").className = "progress-bar sword-green sword-60";
-		else if(health == 55)
+		else if(health >= 350)
 			document.getElementById("ahealth").className = "progress-bar sword-orange sword-55";
-		else if(health == 50)
+		else if(health >= 300)
 			document.getElementById("ahealth").className = "progress-bar sword-orange sword-50";
-		else if(health == 45)
+		else if(health >= 250)
 			document.getElementById("ahealth").className = "progress-bar sword-orange sword-45";
-		else if(health == 40)
+		else if(health >= 200)
 			document.getElementById("ahealth").className = "progress-bar sword-orange sword-40";
-		else if(health == 35)
+		else if(health >= 150)
 			document.getElementById("ahealth").className = "progress-bar sword-red sword-35";
-		else if(health == 30)
+		else if(health >= 100)
 			document.getElementById("ahealth").className = "progress-bar sword-red sword-30";
-		else if(health == 25)
+		else if(health >= 50)
 			document.getElementById("ahealth").className = "progress-bar sword-red sword-25";
-		else if(health == 20)
+		else if(health >= 30)
 			document.getElementById("ahealth").className = "progress-bar sword-red sword-20";
-		else if(health == 15)
+		else if(health >= 25)
 			document.getElementById("ahealth").className = "progress-bar sword-red sword-15";
-		else if(health == 10)
+		else if(health >= 15)
 			document.getElementById("ahealth").className = "progress-bar sword-red sword-10";
-		else if(health == 5)
+		else if(health > 5 || (health < 5 && health >0))
 			document.getElementById("ahealth").className = "progress-bar sword-red sword-5";
-		else if(health == 0){
+		else if(health <= 0){
 			document.getElementById("ahealth").className = "progress-bar sword-red sword-0";
-		
 			window.location.href = "/victory";
 		}
 	}
@@ -232,39 +243,60 @@ playerDamage();
 
 		document.getElementById("message").innerHTML = "<p> The party attacked dealing 10 damage</p>";
 
-		if(health == 0)
+		if(health <= 0)
 		{
 			window.location.href = "/victory";
 		}
 
 		//health = 100;
-		damage = 10;
+		damage = 30;
 
 		//alert("Swordman " + damage);
 		health -= damage;
 
 		document.getElementById("enemy").innerHTML = health;
 
-		if(health >= 90){
+		if(health >= 750)
+			document.getElementById("ahealth").className = "progress-bar sword-green sword-95";
+		else if(health >= 700)
 			document.getElementById("ahealth").className = "progress-bar sword-green sword-90";
-		}else if(health >= 80)
+		else if(health >= 650)
+			document.getElementById("ahealth").className = "progress-bar sword-green sword-85";
+		else if(health >= 600)
 			document.getElementById("ahealth").className = "progress-bar sword-green sword-80";
-		else if(health >= 70)
+		else if(health >= 550)
+			document.getElementById("ahealth").className = "progress-bar sword-green sword-75";
+		else if(health >= 500)
 			document.getElementById("ahealth").className = "progress-bar sword-green sword-70";
-		else if(health >= 60)
-			document.getElementById("ahealth").className = "progress-bar sword-orange sword-60";
-		else if(health >= 50)
+		else if(health >= 450)
+			document.getElementById("ahealth").className = "progress-bar sword-green sword-65";
+		else if(health >= 400)
+			document.getElementById("ahealth").className = "progress-bar sword-green sword-60";
+		else if(health >= 350)
+			document.getElementById("ahealth").className = "progress-bar sword-orange sword-55";
+		else if(health >= 300)
 			document.getElementById("ahealth").className = "progress-bar sword-orange sword-50";
-		else if(health >= 40)
+		else if(health >= 250)
+			document.getElementById("ahealth").className = "progress-bar sword-orange sword-45";
+		else if(health >= 200)
 			document.getElementById("ahealth").className = "progress-bar sword-orange sword-40";
-		else if(health >= 30)
+		else if(health >= 150)
+			document.getElementById("ahealth").className = "progress-bar sword-red sword-35";
+		else if(health >= 100)
 			document.getElementById("ahealth").className = "progress-bar sword-red sword-30";
-		else if(health >= 20)
+		else if(health >= 50)
+			document.getElementById("ahealth").className = "progress-bar sword-red sword-25";
+		else if(health >= 30)
 			document.getElementById("ahealth").className = "progress-bar sword-red sword-20";
-		else if(health >= 10)
+		else if(health >= 25)
+			document.getElementById("ahealth").className = "progress-bar sword-red sword-15";
+		else if(health >= 15)
 			document.getElementById("ahealth").className = "progress-bar sword-red sword-10";
+		else if(health >= 5)
+			document.getElementById("ahealth").className = "progress-bar sword-red sword-5";
 		else if(health >= 0){
-			document.getElementById("ahealth").className = "progress-bar sword-red sword-10";
+			document.getElementById("ahealth").className = "progress-bar sword-red sword-0";
+		
 			window.location.href = "/victory";
 		}
 		
@@ -365,7 +397,7 @@ playerDamage();
 								
 								<%= image_tag("Power up - Medal 3.png", size: "100x100") %>
 								<button id="buttonh" class="btn btn-primary" onclick = "healPlayer(); return false;">use</button>
-								<p>potions left:<h5 id="potions" style="text-align:center;"> 1 </h5>
+								<p>potions left:<h5 id="potions" style="text-align:center;"> 2 </h5>
 								</p> 
 								
 								<%= image_tag("Power up def - Medal.png", size: "100x100") %>
@@ -426,7 +458,7 @@ playerDamage();
 						<!--progress bar with attack button-->
 						<div class="col-sm-3" align="right" style="text-align: center;">
 							<div class="progress">
-								<div id = "ahealth" class="progress-bar sword-100" role="progressbar"><span id="enemy">100</span>/100</div>
+								<div id = "ahealth" class="progress-bar sword-100" role="progressbar"><span id="enemy">750</span>/750</div>
 							</div>
 
 							
@@ -450,11 +482,12 @@ playerDamage();
 						</div>
 						<div class="col-sm-2">
 							<h4>HP:</h4><br>
+							<button style="margin-left: 500px" id="buttonh" class="btn btn-primary" onclick = "skill1(); return false;">skill1</button>
 						</div>
 						<div class="col-sm-2">
 							<div class="progress" style="margin-top: 10px;">
 							<div class="progress-bar progress-bar-danger sword-green sword-100" id = "playerHealth" role="progressbar">
-								<span id="hp">100</span>/100
+								<span id="hp">500</span>/500
 							</div>
 						</div>
 					</div>

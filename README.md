@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -23,7 +22,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-=======
-# TaddleQuestv1
-Project for our web dev class. 
->>>>>>> e4e02d687da6e91bf171c575d97f755a52e91f0b

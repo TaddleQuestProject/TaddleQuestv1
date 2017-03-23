@@ -38,8 +38,5 @@ class WeaponsController < ApplicationController
 
 		redirect_to '/weapons/'
 	end
-<<<<<<< HEAD
-=======
 
->>>>>>> e4e02d687da6e91bf171c575d97f755a52e91f0b
 end
