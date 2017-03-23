@@ -1,0 +1,189 @@
+%
+% File acl2015.tex
+%
+% Contact: car@ir.hit.edu.cn, gdzhou@suda.edu.cn
+%%
+%% Based on the style files for ACL-2014, which were, in turn,
+%% Based on the style files for ACL-2013, which were, in turn,
+%% Based on the style files for ACL-2012, which were, in turn,
+%% based on the style files for ACL-2011, which were, in turn, 
+%% based on the style files for ACL-2010, which were, in turn, 
+%% based on the style files for ACL-IJCNLP-2009, which were, in turn,
+%% based on the style files for EACL-2009 and IJCNLP-2008...
+
+%% Based on the style files for EACL 2006 by 
+%%e.agirre@ehu.es or Sergi.Balari@uab.es
+%% and that of ACL 08 by Joakim Nivre and Noah Smith
+
+\documentclass{acm_proc_article-sp}
+
+\usepackage{graphicx}
+\usepackage{epsfig}
+
+\begin{document}
+
+\title{Taddle Quest}
+
+\numberofauthors{6} 
+\author{
+% 1st. author
+\alignauthor 
+Darren Aboga\\
+       \affaddr{Ateneo de Naga University}\\
+       \affaddr{Naga, Camarines Sur}\\
+       \affaddr{daboga@gbox.adnu.edu.ph}\\
+% 2nd. author
+\alignauthor Mikka Angela Bautista\\
+       \affaddr{Ateneo de Naga University}\\
+       \affaddr{Naga, Camarines Sur}\\
+       \affaddr{mibautista@gbox.adnu.edu.ph}\\
+% 3rd. author
+\alignauthor Jose Isidro Beraquit\\
+       \affaddr{Ateneo de Naga University}\\
+       \affaddr{Naga, Camarines Sur}\\
+       \affaddr{jberaquit@gbox.adnu.edu.ph}
+ \and 
+% 4th. author
+\alignauthor Ralph John De Castro\\
+       \affaddr{Ateneo de Naga University}\\
+       \affaddr{Naga, Camarines Sur}\\
+       \affaddr{rdecastro@gbox.adnu.edu.ph}\\
+% 5th. author
+\alignauthor Gezelle Gonowon\\
+       \affaddr{Ateneo de Naga University}\\
+       \affaddr{Naga, Camarines Sur}\\
+       \affaddr{ggonowon@gbox.adnu.edu.ph}\\
+}
+
+\date{\today}
+
+\maketitle
+
+\begin{abstract}
+  This paper explores on a text based role playing game. The researchers will concentrate on the implementation of this game using ruby on rails, css and html.\\\\\\\\\\ \end{abstract}
+
+\section{Introduction}
+
+Taddle quest is a turn based RPG that shares the same elements as any JRPG games (lot of grinds, the more patient you are the better the rewards). The game will be using a simple point and click mechanics. There will be more than 1 playable character, the player will be able to encounter them as the story goes but the better ones are hidden and the best one can be obtained after a certain requirement is made.
+
+\textbf{Storyline}  //
+P, a legendary game designer suddenly entered his unfinished game "Taddle Quest". The only way to get out is to obtain the legendary item "Masked Driver Chronicle" located in the final dungeon of the game. What truth will he uncover upon playing the game?
+
+
+\section{Related System}
+\textbf{2.1 Ruby Warrior}
+
+This is a game designed to teach the Ruby language and artificial intelligence in a fun, interactive way.
+
+You play as a warrior climbing a tall tower to reach the precious Ruby at the top level. On each floor you need to write a Ruby script to instruct the warrior to battle enemies, rescue captives, and reach the stairs. You have some idea of what each floor contains, but you never know for certain what will happen. You must give the Warrior enough artificial intelligence up-front to find his own way.
+
+NOTE: The player directory structure changed on July 18, 2009. If you have an old profile using the “level-00*” structure then move the contents of the last level into the parent directory.
+
+\textbf{2.2 Rails for Zombies}
+
+
+\section{System Design}
+
+\subsection{Battle System}
+The battle system consists of 3 main parts
+\begin{enumerate}
+\item Health \\
+	> Boss HP (Right side below the boss image)\\
+	> Character HP (Left side next to the character icon)\\
+	> The inventory screen (The horizontal layout above the game screen)\\
+
+\item Items \\
+	> Health potion (Left side) \\
+	> Deflection potion (Left side) \\
+
+\item Status \\
+	> Character Attack \\
+	> Boss Attack \\
+
+\end{enumerate}
+
+\subsection{Interface}
+\textbf{-Dungeon interface-} \\
+There are 2 dungeons in the game. The second one will only be available once the previous one is cleared, the first dungeon will also be available for replay as well. \\
+\includegraphics[width=0.5\textwidth]{1.jpg}
+
+\textbf{-Site Map-}\\
+\includegraphics[width=0.5\textwidth]{6.jpg}\\
+\includegraphics[width=0.5\textwidth]{3.jpg}\\
+\includegraphics[width=0.5\textwidth]{4.jpg}\\
+\includegraphics[width=0.5\textwidth]{5.jpg}\\
+
+\textbf{-Combat Action-}\\
+\includegraphics[width=0.5\textwidth]{7.png}\\
+\includegraphics[width=0.5\textwidth]{8.jpg}\\
+
+\textbf{Game Play ERD}\\
+\includegraphics[width=0.5\textwidth]{10.jpg}\\
+\includegraphics[width=0.5\textwidth]{11.jpg}\\
+
+
+\section{Methodology}
+In this section we will discuss about how the site map works, software used in implementing this game, game mechanics and the enemy behavior. 
+
+The site map of the game isn't far form its original design. There is the title page where you click on next to read a quick lore in the game. Then you will reach the map selection of the game where you select the map you want to play (the second one is hidden and will only show up once you clear the game). Once you cleared the first map, it is now available for replay. You win the game one all the two maps has been cleared. 
+
+This game is implemented using Ruby on Rails that includes Html, CSS, Javascript and Gitbash.
+
+The game play is about strategic timing. The enemies are given behaviors in which they are programmed to do high damage attack once they reach a certain amount of HP (Once HP is reaches 50, 25 and 10 percent). Some of these attacks are designed to instantly kill a player due to high damage so there will be heath potions that will recover 50 percent of the characters health and a one time deflect that will nullify the next attack.   
+
+\section{Results}
+The final game design is almost identical to the prototype but there are noticeable variations as well. The game has added elements that resembles most of RPG elements like skills and items. There was even a change in the total HP bar as well. The boss has been given a behavior and not just some random attacks based on set value.
+
+Overall the final game has undergo a lot of changes, (some of them were not in the original design) significantly on the part of the game difficulty. The first design simply won by continuously clicking the attack button until you win. Now the game mechanics now includes a hidden task of strategic use of items to make sure that you win.  
+
+
+\begin{thebibliography}{7}
+ 
+\bibitem{} 
+Dhamdhere, Dhananjay M.
+\textit{Operating System: A Concept-Based Approach (2nd ed.) McGraw-Hill} (2008). 
+
+\bibitem{} 
+Microsoft (n.d)
+\textit{Critical Section Objects}. 
+Retrieved March 2017 from   https://msdn.microsoft.com/en-us/library/windows/desktop/ms682530(v=vs.85).aspx    
+ 
+\bibitem{} 
+Microsoft (n.d)
+\textit{Using Critical Section Objects}. 
+ Retrieved March 2017 from https://msdn.microsoft.com/en-us/library/windows/desktop/ms686908(v=vs.85).aspx
+
+\bibitem{} 
+Microsoft (n.d)
+\textit{Preventing Hangs in Windows Applications}. 
+ Retrieved March 2017 from https://msdn.microsoft.com/en-us/library/windows/desktop/dd744765(v=vs.85).aspx
+
+ \bibitem{} 
+Muhamma, R. (n.d.)
+\textit{Operating System Notes: Critical Sections}. 
+ Retrieved March 2017 from http://www.personal.kent.edu/~rmuhamma/OpSystems/Myos/criticalSec.htm
+ 
+ \bibitem{} 
+Studytonight (n.d.).
+\textit{Process Synchronization}. 
+ Retrieved March 2017 from http://www.studytonight.com/operating-system/process-synchronization
+https://github.com/ryanb/ruby-warrior
+
+\bibitem{}
+Dickey, Michele D. "\textit{Game design and learning: a conjectural analysis of how massively multiple online role-playing games (MMORPGs) foster intrinsic motivation.}" Educational Technology Research and Development 55, no. 3 (2006): 253-73. doi:10.1007/s11423-006-9004-7.
+w
+\bibitem{}
+Gladstien, Keith. "\textit{Flash game development in a social mobile, and 3D world}". Boston, MA: Cengage Learning, 2014.
+
+\bibitem{}
+Scolastici, Claudio, and David Nolte. \textit{Mobile game design essentials: a useful and detailed resource for designing games for mobile devices}. Birmingham, U.K.: Packt Pub., 2013.
+\end{thebibliography}
+
+
+
+\end{document}
+
+
+
+
+\end{document}
