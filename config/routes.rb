@@ -12,9 +12,17 @@ Rails.application.routes.draw do
   
   get '/page1' => 'pages#page1'
   get '/page2' => 'pages#page2'
+<<<<<<< HEAD
 
    get '/page3' => 'pages#page3'
    get '/page4' => 'pages#page4'
+=======
+   get '/page22' => 'pages#page22'
+
+   get '/page3' => 'pages#page3'
+   get '/page4' => 'pages#page4'
+   get '/page44' => 'pages#page44'
+>>>>>>> e4e02d687da6e91bf171c575d97f755a52e91f0b
   get '/inventory' => 'pages#inventory'
   get '/status' => 'pages#status'
   get '/victory' => 'pages#victory'
